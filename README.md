@@ -5,6 +5,7 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
 ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 Este é um projeto de demonstração focado em **Arquitetura de Alta Performance** e **Resiliência**, construído com Spring Boot. O objetivo principal é demonstrar a implementação de um sistema de consulta de preços de veículos (baseado na Tabela FIPE) que utiliza **Cache Distribuído com Redis** para otimizar drasticamente o tempo de resposta e reduzir a carga no banco de dados relacional.
 
@@ -42,19 +43,26 @@ A arquitetura foi desenhada para suportar alta concorrência. O fluxo de uma req
 Você precisará ter instalado na sua máquina:
 *   **Java JDK 25** (ou compatível com a versão definida no `pom.xml`).
 *   **Maven** (ou use o `mvnw` embutido).
-*   **PostgreSQL**: Rodando na porta padrão `5432` com um banco chamado `fipesearchredis` e credenciais `meurer/meurer` (ou altere no `application.yaml`).
-*   **Redis**: Rodando na porta padrão `6379`. (Recomendado usar Docker: `docker run -d -p 6379:6379 redis`).
+*   **Docker e Docker Compose**: Para rodar os serviços de banco de dados (PostgreSQL) e cache (Redis) de forma super prática e já configurada.
 
 ### Passo a Passo
 
 1.  **Clone e Acesse o Repositório:**
     Navegue até o diretório raiz do projeto (onde está o `pom.xml`).
 
-2.  **Configuração de Dados Simulados:**
+2.  **Suba a Infraestrutura com Docker Compose:**
+    O projeto contém um arquivo `docker-compose.yml` pronto na pasta `docker`. Ele vai provisionar o PostgreSQL e o Redis já com as credenciais e bancos corretos.
+    ```bash
+    cd docker
+    docker compose up -d
+    cd ..
+    ```
+
+3.  **Configuração de Dados Simulados:**
     O projeto conta com um script `src/main/resources/data.sql` que é executado automaticamente (devido à configuração `spring.sql.init.mode=always`). Ele popula o banco de dados com diversas marcas (Toyota, Honda, Volkswagen, etc.), modelos e referências de preço simuladas.
     *(Nota: A geração das chaves estrangeiras usa funções nativas do Postgres como `gen_random_uuid()`).*
 
-3.  **Inicie a Aplicação:**
+4.  **Inicie a Aplicação:**
     Execute o comando Maven para rodar o Spring Boot:
     ```bash
     # No Windows
@@ -64,7 +72,7 @@ Você precisará ter instalado na sua máquina:
     ./mvnw spring-boot:run
     ```
 
-4.  **Acesse a Documentação (Swagger UI):**
+5.  **Acesse a Documentação (Swagger UI):**
     Com a aplicação rodando, abra o seu navegador e acesse a interface interativa do Swagger para testar os endpoints:
     👉 `http://localhost:8080/swagger-ui/index.html`
 
