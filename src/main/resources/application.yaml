@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: fipeSearchRedis
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fipesearchredis
+    username: meurer
+    password: meurer
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      show-sql: true
+      format_sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+app:
+  cache:
+    name: fipe
+    ttl-hours: 24
+
+logging:
+  level:
+    br:
+      com:
+        josemeurer:
+          fipesearchredis: DEBUG
