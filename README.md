@@ -1,5 +1,11 @@
 # FIPE Search - Redis Cache Optimization 🚀
 
+![Java](https://img.shields.io/badge/Java-25-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.0-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
+
 Este é um projeto de demonstração focado em **Arquitetura de Alta Performance** e **Resiliência**, construído com Spring Boot. O objetivo principal é demonstrar a implementação de um sistema de consulta de preços de veículos (baseado na Tabela FIPE) que utiliza **Cache Distribuído com Redis** para otimizar drasticamente o tempo de resposta e reduzir a carga no banco de dados relacional.
 
 ## 🛠️ Tecnologias Utilizadas
