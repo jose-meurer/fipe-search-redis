@@ -1,4 +1,4 @@
-package entities;
+package com.josemeurer.fipeSearchRedis.entities;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Table(name = "References")
+@Table(name = "reference_cars")
 public class ReferenceEntity {
 
     @Id

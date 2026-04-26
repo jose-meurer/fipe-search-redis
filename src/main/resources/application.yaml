@@ -30,7 +30,6 @@ app:
 
 logging:
   level:
-    br:
       com:
         josemeurer:
-          fipesearchredis: DEBUG
+          fipeSearchRedis: DEBUG

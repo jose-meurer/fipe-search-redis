@@ -1,11 +1,11 @@
-package entities;
+package com.josemeurer.fipeSearchRedis.entities;
 
 import jakarta.persistence.*;
 
 import java.util.UUID;
 
 @Entity
-@Table(name = "Models")
+@Table(name = "models")
 public class ModelEntity {
 
     @Id
